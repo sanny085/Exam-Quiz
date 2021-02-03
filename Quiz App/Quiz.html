@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+   
+ <!--Google Fonts-->
+ <link rel="preconnect" href="https://fonts.gstatic.com">
+ <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+<title>Quiz JavaScript</title>
+
+<style>
+   
+   .mainDiv{
+        top:50;
+        right:50;
+    }
+    
+    li{
+        list-style: none;  
+    }
+    input{
+        cursor: pointer;
+    }
+#submit{
+    color: #926dde;
+    font-weight: 600;
+}
+  #submit .btn{
+      padding: 12px 20px;
+      outline:none;
+      display:block;
+      margin: auto;
+      border: none;
+      text-transform: uppercase;
+      color: #fff;
+      margin-top: 22px;
+  }
+  
+  #submit:hover{
+    background-color: #926dde;
+    outline:none;
+    color:#fff;
+    
+  }
+
+ #showScore{
+     background-color: #dfe6e9;
+     margin-top: 20px;
+     padding:32px 0px 30px 0px;
+     box-shadow: 0 1rem 1rem -0.7rem rgba(0, 0, 0, 0.4);
+  }
+
+ .scoreArea{
+       display: none;
+ }
+ .btnRetake{
+    font-weight: 600;
+      background-color: #3cd458;
+      padding: 12px 20px;
+      outline:none;
+      display:block;
+      margin: auto;
+      border: none;
+      text-transform: uppercase;
+      color: #fff;
+      margin-top: 12px;
+      cursor: pointer;
+  }
+  .btnRetake:hover{
+    box-shadow: 0 1rem 1rem -0.8rem #3cd450;
+  }
+     
+    </style>
+  </head>
+  <body>
+<!--Question section -->
+<div class="container mt-5 " >
+    <div class=" mainDiv">
+        
+        <div class="card innerDiv ">
+            <div class="card-header   bg-gradient p-3" style="background-color: #926dde">
+                <h3 class="text text-white question">Question Comes here</h3>
+            </div>
+           
+            <!--Card body start-->
+            <div class="card-body">
+                <form method="post">
+                    <ul class="list-group ">
+                        <li class="list-group-item border-0">
+                          <input id="ans1" name="answer" type="radio" class="answer" aria-label="Last name">
+                          <label for="ans1" id="option1">Answer : Option </label>
+                        </li>
+                    
+                   
+                        <li class="list-group-item border-0">
+                          <input id="ans2" name="answer" type="radio" class="answer" aria-label="Last name">
+                          <label for="ans2" id="option2">Answer : Option </label>
+                        </li>
+                   
+                    
+                        <li class="list-group-item border-0">
+                          <input id="ans3" name="answer" type="radio" class="answer" aria-label="Last name">
+                          <label for="ans3" id="option3">Answer : Option </label>
+                        </li>
+                    
+                        <li class="list-group-item border-0">
+                          <input id="ans4" name="answer" type="radio" class="answer" aria-label="Last name">
+                          <label for="ans4" id="option4">Answer : Option </label>
+                        </li>
+                    </ul>
+                       
+                    <div class="mx-auto text-center">
+                        <button style="border-color: #926dde;" id="submit" class="dateBtn  btn   text" type="button">NEXT QUESTION</button>
+                    </div>
+
+                    <div class="card scoreArea  " id="showScore">
+
+                    </div>
+                     
+                    
+                </form>
+            </div>
+           <!--Card body end-->
+        </div>
+ 
+    </div>
+</div>
+ <!--Question section End -->
+   
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <!-- Custom JavaScript -->
+        <script type="text/javascript">
+    const quizDB = [ 
+       {
+        "question" : "Q1: What type of a language is HTML?",
+        "a" : "Scripting Language",
+        "b" : "Network Protocol",
+        "c" : "Programming Language",
+        "d" : "Markup Language",
+        "ans" : "ans4"
+      },
+      {
+        "question" : "Q2: What should be the first tag in any HTML Document?",
+        "a" : "<html>",
+        "b" : "<head>",
+        "c" : "<title>",
+        "d" : "<!doctype html>",
+        "ans" : "ans4"
+      },
+      {
+        "question" : "Q3: What tag is used to display a picture in a HTML page?",
+        "a" : "Picture",
+        "b" : "Img",
+        "c" : "Src",
+        "d" : "Image",
+        "ans" : "ans2"
+     },
+     {
+        "question" : "Q4: What is the correct HTML tag for inserting a line break?",
+        "a" : "<break />",
+        "b" : "<br />",
+        "c" : "<lb />",
+        "d" : "<nbsp>",
+        "ans" : "ans2"
+     },
+     {
+        "question" : "Q5: Choose the correct HTML tag for the smallest size heading?",
+        "a" : "<heading>",
+        "b" : "<h6>",
+        "c" : "<h1>",
+        "d" : "<head>",
+        "ans" : "ans2"
+     },
+     {
+        "question" : "Q6: Inside which HTML element do we put the JavaScript?",
+        "a" : "<scripting>",
+        "b" : "<js>",
+        "c" : "<javascript>",
+        "d" : "<script>",
+        "ans" : "ans4"
+     },
+     {
+        "question" : "Q7: How do you create a function in JavaScript?",
+        "a" : "function = myFunction()",
+        "b" : "function myFunction()",
+        "c" : "function:myFunction()",
+        "d" : "function1:myFunction()",
+        "ans" : "ans2"
+     },
+     {
+        "question" : "Q8: How to write an IF statement in JavaScript?",
+        "a" : "if (i == 5)",
+        "b" : "if i == 5 then",
+        "c" : "if i = 5 then",
+        "d" : "if i = 5",
+        "ans" : "ans1"
+     },
+     {
+        "question" : "Q9: How do you declare a JavaScript variable?",
+        "a" : "var carName;",
+        "b" : "v carName;",
+        "c" : "variable carName;",
+        "d" : "variable1 Name;",
+        "ans" : "ans1"
+     },
+     {
+        "question" : "Q10: Is JavaScript case-sensitive?",
+        "a" : "True",
+        "b" : "False",
+        "c" : "Both",
+        "d" : "Either a or b",
+        "ans" : "ans1"
+     }
+     
+ ];
+
+ const question = document.querySelector('.question');
+ const option1 = document.querySelector('#option1');
+ const option2 = document.querySelector('#option2');
+ const option3 = document.querySelector('#option3');
+ const option4 = document.querySelector('#option4');
+ const submit = document.querySelector('#submit');
+const answers = document.querySelectorAll('.answer');
+const showScore = document.querySelector('#showScore');
+
+let questionCount = 0;
+let score = 0;
+
+const loadQuestion = ()=>{
+// console.log(quizDB[0].question);
+    const qList = quizDB[questionCount];
+   
+    question.innerText = qList.question;
+        option1.innerText = qList.a;
+        option2.innerText = qList.b;
+        option3.innerText = qList.c;
+        option4.innerText = qList.d;
+}
+
+loadQuestion();
+
+const getCheckAns = ()=>{
+    let answer;
+    
+    answers.forEach((curAnsElem) =>{
+         if(curAnsElem.checked){
+            answer = curAnsElem.id;
+         }
+    });
+    return answer;
+};
+
+const deSelectAll = ()=>{
+    answers.forEach((curAnsElem) =>{
+        curAnsElem.checked = false;
+    })
+}
+
+submit.addEventListener('click', ()=>{
+    const checkedAns = getCheckAns();
+   //console.log(checkedAns);
+    
+    if(checkedAns === quizDB[questionCount].ans){ 
+        score++; 
+    };
+    questionCount++;
+
+    deSelectAll();
+    
+    if(questionCount < quizDB.length){
+        loadQuestion();
+    }
+   
+    else{
+        
+        showScore.innerHTML = `
+        <h3 class="text-center">Your Score is ${score}/${quizDB.length}</h3>
+        <button class="btn btnRetake text-light" onclick="location.reload()">PLAY AGAIN</button> 
+        `;
+
+        showScore.classList.remove('scoreArea');
+    }
+
+});
+
+
+
+
+        </script>
+    
+  </body>
+</html>
