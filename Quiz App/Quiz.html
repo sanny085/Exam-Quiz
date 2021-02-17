@@ -251,7 +251,6 @@ loadQuestion();
 
 const getCheckAns = ()=>{
     let answer;
-    
     answers.forEach((curAnsElem) =>{
          if(curAnsElem.checked){
             answer = curAnsElem.id;
@@ -259,13 +258,11 @@ const getCheckAns = ()=>{
     });
     return answer;
 };
-
 const deSelectAll = ()=>{
     answers.forEach((curAnsElem) =>{
         curAnsElem.checked = false;
     })
 }
-
 submit.addEventListener('click', ()=>{
     const checkedAns = getCheckAns();
    //console.log(checkedAns);
