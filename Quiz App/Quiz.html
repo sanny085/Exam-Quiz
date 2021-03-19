@@ -13,16 +13,15 @@
  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
 
 <title>Quiz JavaScript</title>
-
 <style>
    .mainDiv{
         top:50;
         right:50;
     }
-     li{
+  li{
         list-style: none;  
     }
-    input{
+input{
         cursor: pointer;
     }
 #submit{
@@ -43,8 +42,7 @@
     background-color: #926dde;
     outline:none;
     color:#fff;
-    
-  }
+ }
 #showScore{
      background-color: #ebedee;
      margin-top: 20px;
@@ -55,7 +53,7 @@
        display: none;
  }
  .btnRetake{
-    font-weight: 600;
+      font-weight: 600;
       background-color: #3cd458;
       padding: 12px 20px;
       outline:none;
@@ -68,7 +66,7 @@
       cursor: pointer;
   }
   .btnRetake:hover{
-    box-shadow: 0 1rem 1rem -0.8rem #3cd450;
+      box-shadow: 0 1rem 1rem -0.8rem #3cd450;
   }
      
     </style>
@@ -272,7 +270,6 @@ submit.addEventListener('click', ()=>{
     if(questionCount < quizDB.length){
         loadQuestion();
     }
-   
     else{
         
         showScore.innerHTML = `
